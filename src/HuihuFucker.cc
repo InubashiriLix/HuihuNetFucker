@@ -4,7 +4,6 @@
 #include <chrono>
 #include <cstring>
 #include <filesystem>
-#include <format>
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -52,7 +51,7 @@ AuthStatus_E HuihuFucker::auth() {
         // std::string post_fields =
         //     "{\"domain\":\"cmcc\",\"username\":\"18896759108\",\"password\":\"123321\"}";
         std::stringstream ss;
-        ss << "{\"domain\":\"cmcc\",\"username\":\"" << this->account.username
+        ss << "{\"domain\":\"telecom\",\"username\":\"" << this->account.username
            << "\",\"password\":\"" << this->account.password << "\"}";
         std::string post_fields = ss.str();
 
@@ -125,8 +124,8 @@ bool HuihuFucker::readConfig() {
 
     if (username && pwd) {
         std::cout << "ReadData: get data successfully" << std::endl;
-        std::cout << std::format("ReadData: username: {}", *username) << std::endl;
-        std::cout << std::format("ReadData: password: {}", *pwd) << std::endl;
+        std::cout << "ReadData: username: " << *username << std::endl;
+        std::cout << "ReadData: password: " << *pwd << std::endl;
         this->account.username = *username;
         this->account.password = *pwd;
     } else {
